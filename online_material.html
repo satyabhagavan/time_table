@@ -1,71 +1,53 @@
 <!DOCTYPE html>
 <html>
-<style type="text/css">
-	a{
-		text-decoration: none;
-	}
-	nav a{
-		text-decoration: none;
-		margin: 5px;
-		border: solid 2px black;
-		font-weight: bold;
-		padding:  2px;
-		border-radius: 5px
-	}
-	table{
-		border-collapse:  collapse;
-		width: 100%;
-	}
-	tr, td, th {
-		border: 2px solid #222;
-		text-align: center;
-		padding:  5px;
-	}
-	div {
-		text-align: center;
-	}
-	table{
-		margin: 2.5%;
-		width: 95%;
-	}
-	h2 a {
-		border: solid 2px black;
-		border-radius:  5px;
-		padding: 2px;
-	}
-
-	.tutorial
-	{
-		background-color: #000077;
-	}
-
-
-</style>
 <head>
 	<meta charset="utf-8">
 	<title>online semester</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+    	<script src="script.js"></script>
 </head>
 <body>
-	<div  class="class">
-		<h2>class links</h2>
-		<nav>
-			
-			<a href="#" target="_blank">Cs 303</a>
-			<a href="#" target="_blank">Cs 305</a>
-			<a href="#" target="_blank">Cs 307</a>
-			<a href="#" target="_blank">Cs 309</a>
-		</nav>
+	<div class="header">
+		<div class="links">
+			<div  class="class">
+				<h2>class links</h2>
+				<nav>
+					
+					<a href="#" target="_blank">CS 303</a>
+					<a href="#" target="_blank">CS 305</a>
+					<a href="#" target="_blank">CS 307</a>
+					<a href="#" target="_blank">CS 309</a>
+				</nav>
+			</div>
+			<div class="material">
+				<h2>material links</h2>
+				<nav>
+					<a href="#" target="_blank">CS 303</a>
+					<a href="#" target="_blank">CS 305</a>
+					<a href="#" target="_blank">CS 307</a>
+					<a href="#" target="_blank">CS 309</a>
+				</nav>
+			</div>
+		</div>
+
+		
+		<div class="clock">
+	        <div class="container">
+	          <h2 id="hour">00</h2>
+	          <h2 class="dot">:</h2>
+	          <h2 id="minute">00</h2>
+	          <h2 class="dot">:</h2>
+	          <h2 id="seconds">00</h2>
+	          <span id="ampm">AM</span>
+		    </div>
+		</div>
+
 	</div>
-	<div class="material">
-		<h2>material links</h2>
-		<nav>
-			<a href="#" target="_blank">Cs 303</a>
-			<a href="#" target="_blank">Cs 305</a>
-			<a href="#" target="_blank">Cs 307</a>
-			<a href="#" target="_blank">Cs 309</a>
-		</nav>
-	</div>
+	
+
 	<br>
+
+
 	<table>
 		<tr>
 			<th>Day</th>
@@ -85,44 +67,44 @@
 			<td></td>
 			<td></td>
 			<td></td>
-			<td>L : CS 303</td>
-			<td>L : CS 309</td>
-			<td></td>
-			<td>L : CS 307</td>
-			<td colspan="3">P: CS 353</td>
+			<td class="l">L : CS 303</td>
+			<td class="l">L : CS 309</td>
+			<td class="lunch"></td>
+			<td class="l">L : CS 307</td>
+			<td colspan="3" class="p">P: CS 353</td>
 		</tr>
 		<tr>
 			<td>Tuesday</td>
 			<td></td>
 			<td></td>
 			<td></td>
-			<td>L : CS 303</td>
-			<td>L : CS 305</td>
+			<td class="l">L : CS 303</td>
+			<td class="l">L : CS 305</td>
+			<td class="lunch"></td>
 			<td></td>
-			<td></td>
-			<td colspan="3">P: CS 355</td>
+			<td colspan="3" class="p">P: CS 355</td>
 		</tr>
 		<tr>
 			<td>Wednesday</td>
 			<td></td>
 			<td></td>
-			<td>T : CS 303</td>
-			<td>L : CS 305</td>
+			<td class="t">T : CS 303</td>
+			<td class="l">L : CS 305</td>
 			<td></td>
+			<td class="lunch"></td>
 			<td></td>
-			<td></td>
-			<td colspan="3">P: 357</td>
+			<td colspan="3" class="p">P: CS 357</td>
 		</tr>
 		<tr>
 			<td>Thursday</td>
 			<td></td>
 			<td></td>
 			<td></td>
-			<td>T : CS 305</td>
-			<td>L : CS 309</td>
+			<td class="t">T : CS 305</td>
+			<td class="l">L : CS 309</td>
+			<td class="lunch"></td>
 			<td></td>
-			<td></td>
-			<td colspan="3">P: CS 359</td>
+			<td colspan="3" class="p">P: CS 359</td>
 		</tr>
 		<tr>
 			<td>Friday</td>
@@ -131,20 +113,20 @@
 			<td></td>
 			<td></td>
 			<td></td>
+			<td class="lunch"></td>
 			<td></td>
-			<td></td>
-			<td>L: CS 307</td>
-			<td>T: CS 307</td>
+			<td class="l">L :CS 307</td>
+			<td class="t">T :CS 307</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>Saturday</td>
 			<td></td>
-			<td>T: CS 309</td>
+			<td class="t">T: CS 309</td>
 			<td></td>
 			<td></td>
 			<td></td>
-			<td></td>
+			<td class="lunch"></td>
 			<td></td>
 			<td></td>
 			<td></td>
