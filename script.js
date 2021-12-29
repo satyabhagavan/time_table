@@ -8,6 +8,7 @@ function clock(){
     let h = new Date().getHours();
     let m = new Date().getMinutes();
     let s = new Date().getSeconds();
+    let day = new Date().getDay();
     var am = 'AM' ;
 
     // Conver 24 hour time to 12 hour format with AM/PM Indicator
@@ -25,6 +26,7 @@ function clock(){
     minute.innerHTML = m;
     seconds.innerHTML = s;
     ampm.innerHTML = am;
+    document.querySelector(`.d-${day}`).style.border = "3px dashed black";
 }
 
 var interval = setInterval(clock, 1000);
