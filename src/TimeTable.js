@@ -1,6 +1,38 @@
 import { timeTableData } from './timeTableData'
+import createNotification from './Notification'
+
+function currentClass() {
+	const day = new Date().toLocaleString('en-us', { weekday: 'long' })
+	if (day === "Sunday") return ""
+	const time = new Date().getHours()
+	if (time < 9 || time > 17) return ""
+	const data = timeTableData[day];
+	for (var i in data) {
+		if (data[i]) {
+			if ((parseInt(i) <= time) && (time <= (parseInt(i) + data[i][1] - 1))) return data[i][0]
+		}
+	}
+	return ""
+}
 
 function TimeTable() {
+	setTimeout(() => {
+		const classs = currentClass();
+		if (classs)
+			createNotification({
+				title: "Current Class",
+				message: `${currentClass()}`,
+				type: "success",
+				position: "top-right",
+			})
+		else
+			createNotification({
+				message: "No class for now",
+				type: "info",
+				position: "top-right",
+			})
+
+	}, 100)
 	return (
 		<table>
 			<thead>
@@ -19,15 +51,14 @@ function TimeTable() {
 				</tr>
 			</thead>
 			<tbody>
-				{Object.keys(timeTableData).map(function (day) {
+				{Object.keys(timeTableData).map(function (day, index) {
 					return (
-						<tr>
-							<td>{day}</td>
+						<tr key={`${index}-key`}>
+							<td key={`${index}-day`}>{day}</td>
 							{
-								Object.keys(timeTableData[day]).map(function (schedule) {
-
+								Object.keys(timeTableData[day]).map(function (schedule, idx) {
 									if (timeTableData[day][schedule] == null) {
-										return <td></td>
+										return <td key={`${idx}-sch`}></td>
 									} else {
 										const course = timeTableData[day][schedule][0];
 										var classname = ""
@@ -35,7 +66,7 @@ function TimeTable() {
 										if (course[0] === "T") classname = "t"
 										if (course[0] === "P") classname = "p"
 										if (course[4] === "4") classname = "a"
-										return <td className={classname} colSpan={timeTableData[day][schedule][1]} > {timeTableData[day][schedule][0]}</td>
+										return <td key={`${idx}-sch`} className={classname} colSpan={timeTableData[day][schedule][1]} > {timeTableData[day][schedule][0]}</td>
 									}
 								})
 							}
