@@ -4,7 +4,7 @@ import { timeTableData } from './timeTableData'
 function TimeTable({ today, onGoingClass }) {
 
 	return (
-		<table>
+		<table id='timetable'>
 			<thead>
 				<tr>
 					<th>Day</th>

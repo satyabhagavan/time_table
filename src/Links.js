@@ -2,7 +2,7 @@ function Links() {
 	return (
 		<div className="links">
 			<div className="className">
-				<h2>className links</h2>
+				<h2>class links</h2>
 				<nav>
 					<a href="https://meet.google.com/sda-feqs-auf" target="_blank" rel="noreferrer">L-CS 302</a>
 					<a href="https://meet.google.com/mbn-enxt-iej" target="_blank" rel="noreferrer">T-CS 302</a>

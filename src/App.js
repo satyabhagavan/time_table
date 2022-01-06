@@ -23,6 +23,13 @@ function currentClass(day) {
 }
 
 function App() {
+	const viewport = document.querySelector('meta[name="viewport"]');
+
+	if (viewport) {
+		viewport.content = 'initial-scale=1';
+		viewport.content = 'width=device-width';
+	}
+
 	const today = new Date().toLocaleString('en-us', { weekday: 'long' })
 	const [onGoingClass, setOnGoingClass] = useState(null)
 
@@ -73,15 +80,17 @@ function App() {
 				insert: "top",
 				container: "top-right",
 			});
-	}, [today])
+	}, [])
 
 	return (
-		<>
+		<div id='app'>
 			<ReactNotification />
-			<Links />
-			<TimeTable today={today} onGoingClass={onGoingClass} />
-			<Courses onGoingClass={onGoingClass} />
-		</>
+			<div id="content">
+				<Links />
+				<TimeTable today={today} onGoingClass={onGoingClass} />
+				<Courses onGoingClass={onGoingClass} />
+			</div>
+		</div>
 	);
 
 }
