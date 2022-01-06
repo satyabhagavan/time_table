@@ -33,6 +33,10 @@ export const courseLinks = {
 		"classLink": "https://meet.google.com/bpi-hxwd-qdk",
 		"materialLink": "https://classroom.google.com/u/0/c/NDUwMjYxMjM0NjAz"
 	},
+	"P:CS356": {
+		"classLink": "https://meet.google.com/bpi-hxwd-qdk",
+		"materialLink": "https://classroom.google.com/u/0/c/NDUwMjYxMjM0NjAz"
+	},
 
 	"L:CS308": {
 		"classLink": "https://meet.google.com/bpi-hxwd-qdk",
