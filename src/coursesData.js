@@ -27,7 +27,7 @@ export const coursesData = {
 		"Name": "Compiler Techniques",
 		"Instructor": "Dr. Nagendra Kumar",
 		"Links": {
-			"classLink": "",
+			"classLink": "https://meet.google.com/bpi-hxwd-qdk",
 			"Material": ""
 		}
 	},
