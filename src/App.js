@@ -44,7 +44,7 @@ function App() {
 				insert: "top",
 				container: "top-right",
 			});
-	}, [])
+	}, [today])
 
 	return (
 		<>
