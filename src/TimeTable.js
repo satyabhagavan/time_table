@@ -1,12 +1,12 @@
 import { timeTableData } from './timeTableData'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { store } from 'react-notifications-component'
 
-function currentClass() {
-	const day = new Date().toLocaleString('en-us', { weekday: 'long' })
+function currentClass(day) {
 	if (day === "Sunday") return ""
-	const time = new Date().getHours()
+	// const time = new Date().getHours()
+	const time = 10
 	if (time < 9 || time > 17) return ""
 	const data = timeTableData[day];
 	for (var i in data) {
@@ -18,30 +18,27 @@ function currentClass() {
 }
 
 function TimeTable() {
+	const today = new Date().toLocaleString('en-us', { weekday: 'long' })
+	const [onGoingClass, setOnGoingClass] = useState(null)
+
 	useEffect(() => {
-		const classs = currentClass();
-		if (classs)
+		const classs = currentClass(today);
+		if (classs) {
+			setOnGoingClass(classs)
 			store.addNotification({
-				title: "Current Class",
-				message: `${currentClass()}`,
+				title: "Ongoing Class",
+				message: `${classs}`,
 				type: "success",
 				insert: "top",
 				container: "top-right",
-				animationIn: ["animate__animated", "animate__fadeIn"],
-				animationOut: ["animate__animated", "animate__fadeOut"],
 			});
+		}
 		else
 			store.addNotification({
 				message: "No class for now",
 				type: "info",
 				insert: "top",
 				container: "top-right",
-				animationIn: ["animate__animated", "animate__fadeIn"],
-				animationOut: ["animate__animated", "animate__fadeOut"],
-				dismiss: {
-					duration: 5000,
-					onScreen: true
-				}
 			});
 	}, [])
 
@@ -50,7 +47,7 @@ function TimeTable() {
 			<thead>
 				<tr>
 					<th>Day</th>
-					{/* <th>8 to 9 am</th> */}
+					<th>8 to 9 am</th>
 					<th>9 to 10 am</th>
 					<th>10 to 11 am</th>
 					<th>11 to 12 pm</th>
@@ -65,7 +62,7 @@ function TimeTable() {
 			<tbody>
 				{Object.keys(timeTableData).map(function (day, index) {
 					return (
-						<tr key={`${index}-key`}>
+						<tr key={`${day}-key`} className={today === day ? "today" : ""}>
 							<td key={`${index}-day`}>{day}</td>
 							{
 								Object.keys(timeTableData[day]).map(function (schedule, idx) {
@@ -73,12 +70,16 @@ function TimeTable() {
 										return <td key={`${idx}-sch`}></td>
 									} else {
 										const course = timeTableData[day][schedule][0];
-										var classname = ""
-										if (course[0] === "L") classname = "l"
-										if (course[0] === "T") classname = "t"
-										if (course[0] === "P") classname = "p"
-										if (course[4] === "4") classname = "a"
-										return <td key={`${idx}-sch`} className={classname} colSpan={timeTableData[day][schedule][1]} > {timeTableData[day][schedule][0]}</td>
+										var classColor = ""
+										if (course[0] === "L") classColor = "l"
+										if (course[0] === "T") classColor = "t"
+										if (course[0] === "P") classColor = "p"
+										if (course[4] === "4") classColor = "a"
+										return <td key={`${idx}-sch`} className={classColor} colSpan={timeTableData[day][schedule][1]}>
+											<span className={course === onGoingClass && day === today ? "ongoing" : ""}>
+												{timeTableData[day][schedule][0]}
+											</span>
+										</td>
 									}
 								})
 							}
