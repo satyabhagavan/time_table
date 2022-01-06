@@ -1,4 +1,4 @@
-const coursesData = {
+export const coursesData = {
 	"CS302": {
 		"Name": "Computer Graphics and Visualization",
 		"Instructor": "Dr. Somnath Dey",

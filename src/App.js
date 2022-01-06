@@ -10,8 +10,7 @@ import { store } from 'react-notifications-component'
 
 function currentClass(day) {
 	if (day === "Sunday") return ""
-	// const time = new Date().getHours()
-	const time = 10
+	const time = new Date().getHours()
 	if (time < 9 || time > 17) return ""
 	const data = timeTableData[day];
 	for (var i in data) {
@@ -52,7 +51,7 @@ function App() {
 			<ReactNotification />
 			<Links />
 			<TimeTable today={today} onGoingClass={onGoingClass} />
-			<Courses />
+			<Courses onGoingClass={onGoingClass} />
 		</>
 	);
 

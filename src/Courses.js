@@ -1,15 +1,21 @@
-function Courses() {
+import { coursesData } from './coursesData'
+
+function Courses({ onGoingClass }) {
 	return (
 		<div className="courses">
 			<table>
 				<thead>
 					<tr>
-						<th>Course Number</th>
+						<th>Course Code</th>
 						<th>Course Name</th>
 						<th>Instructor</th>
 					</tr>
 				</thead>
 				<tbody>
+					{
+						Object.keys(coursesData).map(function (courseCode, index) {
+						})
+					}
 					<tr>
 						<td>CS 302</td>
 						<td>Computer Graphics and Visualization</td>
