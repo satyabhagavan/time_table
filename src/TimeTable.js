@@ -1,5 +1,7 @@
 import { timeTableData } from './timeTableData'
-import createNotification from './Notification'
+import { useEffect } from 'react'
+
+import { store } from 'react-notifications-component'
 
 function currentClass() {
 	const day = new Date().toLocaleString('en-us', { weekday: 'long' })
@@ -16,23 +18,33 @@ function currentClass() {
 }
 
 function TimeTable() {
-	setTimeout(() => {
+	useEffect(() => {
 		const classs = currentClass();
 		if (classs)
-			createNotification({
+			store.addNotification({
 				title: "Current Class",
 				message: `${currentClass()}`,
 				type: "success",
-				position: "top-right",
-			})
+				insert: "top",
+				container: "top-right",
+				animationIn: ["animate__animated", "animate__fadeIn"],
+				animationOut: ["animate__animated", "animate__fadeOut"],
+			});
 		else
-			createNotification({
+			store.addNotification({
 				message: "No class for now",
 				type: "info",
-				position: "top-right",
-			})
+				insert: "top",
+				container: "top-right",
+				animationIn: ["animate__animated", "animate__fadeIn"],
+				animationOut: ["animate__animated", "animate__fadeOut"],
+				dismiss: {
+					duration: 5000,
+					onScreen: true
+				}
+			});
+	}, [])
 
-	}, 100)
 	return (
 		<table>
 			<thead>
@@ -73,77 +85,6 @@ function TimeTable() {
 						</tr>
 					);
 				})}
-			</tbody>
-			<tbody>
-				{/* <tr className="d-1">
-					<td>Monday</td>
-					<td></td>
-					<td className="l">L : CS 308</td>
-					<td></td>
-					<td></td>
-					<td className="l">L : CS 304</td>
-					<td className="lunch"></td>
-					<td colSpan="3" className="p">P: CS 352</td>
-					<td></td>
-				</tr>
-				<tr className="d-2">
-					<td>Tuesday</td>
-					<td></td>
-					<td className="l">L : CS 308</td>
-					<td className="l">L : CS 306</td>
-					<td className="l">L : CS 302</td>
-					<td></td>
-					<td className="lunch"></td>
-					<td className="l">L : ES 302</td>
-					<td colSpan="3" className="p">P: CS 358</td>
-				</tr>
-				<tr className="d-3">
-					<td>Wednesday</td>
-					<td></td>
-					<td className="t">T : CS 306</td>
-					<td></td>
-					<td></td>
-					<td className="l">L : CS 304</td>
-					<td className="lunch"></td>
-					<td colSpan="3" className="p">P: CS 354</td>
-					<td></td>
-				</tr>
-				<tr className="d-4">
-					<td>Thursday</td>
-					<td></td>
-					<td></td>
-					<td className="l">L : CS 306</td>
-					<td className="l">L : CS 302</td>
-					<td className="t">T : CS 304</td>
-					<td className="lunch"></td>
-					<td className="l">L:HS302</td>
-					<td className="a">P : CS 425</td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr className="d-5">
-					<td>Friday</td>
-					<td></td>
-					<td className="t">T : CS 308</td>
-					<td></td>
-					<td className="t">T : CS 302</td>
-					<td></td>
-					<td className="lunch"></td>
-					<td colSpan="3" className="p">P: CS 356</td>
-					<td></td>
-				</tr>
-				<tr className="d-6">
-					<td>Saturday</td>
-					<td></td>
-					<td className=""></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td className="lunch"></td>
-					<td className="l">L : ES 302</td>
-					<td colSpan="2" className="a">L : CS 425</td>
-					<td></td>
-				</tr> */}
 			</tbody>
 		</table>
 	);
