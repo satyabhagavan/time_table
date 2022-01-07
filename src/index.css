@@ -1,0 +1,90 @@
+*
+{
+  font-family: Verdana, sans-serif;
+}
+
+a
+{
+	text-decoration: none;
+}
+nav a{
+	text-decoration: none;
+	margin: 5px;
+	border: solid 2px rgba(0, 0, 0, .5);
+	font-weight: bold;
+	padding:  2px;
+	border-radius: 5px
+}
+
+table{
+	border-collapse:  collapse;
+	/* width: 100%; */
+}
+tr, td, th {
+	border: 2px solid rgba(10,10,10,0.2);
+	text-align: center;
+	padding:  5px;
+}
+
+#app {
+	text-align: center;
+}
+
+#content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: max-content;
+}
+
+@media only screen and (min-width: 600px) {
+	#content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-right: -50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+#timetable {
+	margin: 2%;
+	flex-grow: 1;
+   	overflow: scroll;
+}
+
+#courses {
+	margin: 2%;
+	flex-grow: 1;
+}
+
+.today {
+	/* font-size: 1.2em; */
+	transition: all 1s ease-in;
+	border: 3px solid black;
+}
+
+.ongoing {
+	font-weight: 900;
+	font-size: 1.2em;
+}
+
+.t
+{
+	background-color: #00dcff;
+}
+
+.l
+{
+	background-color: #05df54;
+}
+
+.p
+{
+	background-color: #fe6701;
+}
+
+.a
+{
+	background-color: #d6df05 ;
+}
