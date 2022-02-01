@@ -58,15 +58,6 @@ h2 a {
 	background-color: #d6df05 ;
 }
 
-.lunch img
-{
-	/*
-	background-image: url("https://img.icons8.com/bubbles/1x/meal.png");
-	height: 100%;
-	*/
-}
-
-
 .header
 {
 	display: flex;
@@ -106,4 +97,14 @@ h2 a {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.assignmnet
+{
+	background-color: rgb(32, 218, 187);
+}
+
+.exam
+{
+	background-color: rgb(67 221 11);
 }
